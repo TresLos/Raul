@@ -1,0 +1,14 @@
+\begin{figure}[ht!]
+	\centering
+	\begin{circuitikz}
+		\draw (3, 2) node[op amp] (omp) {}
+			(omp.+) to[R = $R_2$] ++ (0, -2) node[ground] {}
+			($(omp.+)+(-4, 0)$) node[left] {$V$} to[C = $C_1$, o-*] ++ (2, 0) to[C = $C_2$, -*] (omp.+)
+			($(omp.-)+(-2, 1)$) node[ground] {} to[R = $R_a$, -*] ++ (2, 0) |- (omp.-)
+			($(omp.-)+(0, 1)$) to[R = $R_b$] ++ (2, 0) -| (omp.out)
+			(omp.out) to[short, *-o] ++ (1, 0) node[right] {$V_o$}
+			($(omp.+)+(-2, 0)$) to[R = $R_1$] ++(0, -2.8) -| (omp.out)
+		;
+	\end{circuitikz}
+	\caption{Circuit 2 - b}
+\end{figure}
